@@ -1,0 +1,12 @@
+<header class="header">
+{% load static %}
+<img src="{% static 'images/logo.png' %}" alt="Logo pic" class="logo">
+
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+        <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a></li>
+        <li><a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a></li>
+    </ul>
+</nav>
+</header>

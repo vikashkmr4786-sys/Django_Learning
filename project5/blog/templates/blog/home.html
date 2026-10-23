@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>#1 Template Basics</title>
+    </head>
+    <body>
+        <h1>Template Basic</h1>
+        <!--This is comment 1-->
+        <!-- single variable -->
+         <p>Name : {{name}}</p>
+         <p>Name : {{age}}</p>
+         <!-- list access -->
+          <p>Skill: {{skills.0}}</p>
+          <!-- obj attribute -->
+           <p>User name : {{user.name}}</p>
+           <p>User age : {{user.age}}</p>
+
+           <!-- dicsnary -->
+            <p>Title : {{blog.title}}</p>
+            <p>Created date : {{blog.created_at}}</p>
+            <p>content : {{blog.content}}</p>
+            <p>content : {{blog.content | safe}}</p>
+
+            <!-- default value -->
+
+            <p>Default Empty value : {{empty_value | default:"now it is empty"}}</p>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>#3 Template</title>
+    </head>
+    <body>
+        <p>{{today}}</p>
+        <h1>Blog list</h1>
+        <!-- if else learning -->
+         {% if blogs.0.is_featured %}
+         <h2>Featured blog : {{blogs.0.title}}</h2>
+         {% else %}
+         <h2>No Featured Blog : {{blogs.0.title}}</h2>
+         {%endif%}
+
+         <!-- for loop -->
+          <ul>
+            {% for blog in blogs %}
+            <li>{{forloop.counter}}. {{blog.title}} - {{blog.author}}</li>
+            {% empty %}
+            <li>No blog</li>
+            {% endfor %}
+          </ul>
+<hr>
+          <!-- Learn with -->
+           {% with total_blog=blogs|length %}
+           <p>Total blogs = {{total_blog}}</p>
+           {% endwith %}
+
+           <!-- Cycle -->
+            <hr>
+            <h2>Blogs in table</h2>
+            <Table border="1" cellspacing="0">
+                {% for blog in blogs %}
+                <tr style="background-color: {% cycle 'lightblue' 'lightgreen' %};">
+                    <td>{{forloop.counter}}.</td>
+                    <td>{{blog.title}}</td>
+                    <td>{{blog.author}}</td>
+
+                </tr>
+                {% endfor %}
+            </Table>
+            <hr>
+            <!-- firstof -->
+             <p>Author: {% firstof blogs.0.author "Anonymous" %}</p>
+             <hr>
+             <!-- verbatim -->
+              {% verbatim %}
+              <p>Author: {{blogs.1.author}}</p>
+              {% endverbatim %}
+
+              <hr>
+              <!-- autoescape -->
+               <h2>Autoescape example</h2>
+               <p>default(safe Escape): {{html_code}} </p>
+
+    </body>
+</html>
